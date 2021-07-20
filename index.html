@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>instal app</title>
+</head>
+<body>
+    <div id="data"></div>
+    <iframe src="https://bitrixmaster.github.io/index.html"></iframe>
+    
+    <script src="//api.bitrix24.com/api/v1/"></script>
+    <script>
+        BX24.install(function() {
+            BX24.callMethod('placement.bind', { 
+        "PLACEMENT" : "CRM_COMPANY_DETAIL_TAB", "HANDLER" : "https://bitrixmaster.github.io/index.html", "TITLE" : "FIIIIRE"
+    }, function(res){
+        alert('Приложение "Archaic Chaos" приветствует вас!');
+            BX24.installFinish();
+            });
+        });
+    </script>
