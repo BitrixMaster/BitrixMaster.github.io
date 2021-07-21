@@ -2,50 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>instal app</title>
+    <title>JS script for Bx24</title>
 </head>
 <body>
-    <div id="data"></div>
-    <iframe src="https://bitrixmaster.github.io/index.php" frameborder="0" marginwidth="100" marginheight="100" width="100%" height="1000"></iframe>
-    
-    <script src="//api.bitrix24.com/api/v1/"></script>
-    <script>
-        BX24.install(function() {
-            BX24.callMethod('placement.bind', { 
-        "PLACEMENT" : "CRM_COMPANY_DETAIL_TAB", "HANDLER" : "https://bitrixmaster.github.io/index.html", "TITLE" : "FIIIIRE"
-    }, function(res){
-        alert('Приложение "Archaic Chaos" приветствует вас!');
-            BX24.installFinish();
-            });
-        });
-    </script>
-        <script>
+    <div id="data">Это просто div!</div>
 
-                BX24.callMethod("crm.contact.list",  { 
-                order: { "DATE_CREATE": "ASC" },
-                filter: { ">DATE_CREATE": "2021-06-21", "<DATE_CREATE": "2021-06-22" },
-                select: [ "ID", "NAME", "LAST_NAME", "TYPE_ID", "SOURCE_ID", "PHONE" ]
-            }, function(res){
-            alert('Приложение "Archaic Chaos" приветствует вас СНОВА!');
-            var outputString = `№_ ID___ NAME____ LAST_NAME__ PHONE____<br> \n`;
-                var x;
-                var phones = "";
-                var counter = 1;
-                (res.data()).forEach(element => {
-                    phones = "";
-                    if(Object.keys(element).includes('PHONE')){
-                        x = element.PHONE;
-                        x.forEach(elx => {
-                            phones = phones + " " + elx.VALUE;
-                        });
-                    } else {
-                        console.log(element.ID + " has not PHONE")
-                    }
-                    outputString = outputString + counter + " " + element.ID + " " + element.NAME + " " + element.LAST_NAME + " " + phones + `; <br> \n`;
-                    counter = counter + 1;
-                });
-            
-                document.getElementById('data').innerHTML = outputString;
-                console.log(res.data());
-                });
-        </script>
+    <script>
+        const msg = 'Hello\nworld\n!'
+        const request = new Request('https://rastsvetay.bitrix24.ru/rest/245/qgmerxndhcefjb05/im.message.add.json?DIALOG_ID=245&MESSAGE=' + msg);
+    </script>
+</body>
+</html>
